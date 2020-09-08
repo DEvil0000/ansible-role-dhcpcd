@@ -1,0 +1,18 @@
+---
+dhcpcd_config_path: /etc/dhcpcd.conf
+
+dhcpcd_global_config: {}
+
+#dhcpcd_global_config:
+#  - keyword: noipv4ll
+#  - keyword: clientid
+#  - keyword: duid
+#    state: absent
+#  - keyword: slaac
+#    value: hwaddr
+
+dhcpcd_interface_config:
+  - name: "{{ ansible_default_ipv4.interface }}"
+    config: |
+      "gateway"
+      "metric 0"
