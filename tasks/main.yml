@@ -3,6 +3,7 @@
   become: yes
   package:
     name: dhcpcd5
+  when: dhcpcd_install_packages
 
 - name: configure global dhcpcd config values
   become: yes
@@ -29,3 +30,4 @@
   package:
     name: isc-dhcp-client
     state: absent
+  when: dhcpcd_remove_dhclient

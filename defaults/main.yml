@@ -1,4 +1,7 @@
 ---
+dhcpcd_install_packages: true
+dhcpcd_remove_dhclient: true
+
 dhcpcd_config_path: /etc/dhcpcd.conf
 
 dhcpcd_global_config: {}
