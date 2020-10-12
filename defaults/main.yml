@@ -17,5 +17,5 @@ dhcpcd_global_config: {}
 dhcpcd_interface_config:
   - name: "{{ ansible_default_ipv4.interface }}"
     config: |
-      "gateway"
-      "metric 0"
+      gateway
+      metric 0
