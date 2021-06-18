@@ -4,7 +4,7 @@ dhcpcd_remove_dhclient: true
 
 dhcpcd_config_path: /etc/dhcpcd.conf
 
-dhcpcd_global_config: {}
+dhcpcd_global_config: []
 
 #dhcpcd_global_config:
 #  - keyword: noipv4ll
