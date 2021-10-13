@@ -14,6 +14,7 @@
     state: "{{ item.state | default('present') }}"
     insertbefore: BOF
   loop: "{{ dhcpcd_global_config }}"
+  notify: reconfigure dhcpcd
 
 - name: configure dhcpcd interfaces
   become: yes
@@ -24,6 +25,7 @@
       interface {{ item.name }}
       {{ item.config | default("") }}
   loop: "{{ dhcpcd_interface_config }}"
+  notify: reconfigure dhcpcd
 
 - name: purge legacy dhclient
   become: yes
@@ -31,3 +33,4 @@
     name: isc-dhcp-client
     state: absent
   when: dhcpcd_remove_dhclient
+  notify: terminate dhclient processes

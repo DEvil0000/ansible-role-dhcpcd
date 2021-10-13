@@ -1,0 +1,10 @@
+- name: reconfigure dhcpcd
+  service:
+    name: dhcpcd
+    state: reloaded
+
+- name: terminate dhclient processes
+  command: killall -q dhclient
+  register: result
+  failed_when:
+    - result.rc != 0 and result.rc != 1
