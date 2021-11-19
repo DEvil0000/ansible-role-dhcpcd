@@ -1,7 +1,7 @@
 - name: reconfigure dhcpcd
   service:
     name: dhcpcd
-    state: reloaded
+    state: restarted
 
 - name: terminate dhclient processes
   command: killall -q dhclient
