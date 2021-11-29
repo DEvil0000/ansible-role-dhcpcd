@@ -14,8 +14,10 @@ dhcpcd_global_config: []
 #  - keyword: slaac
 #    value: hwaddr
 
-dhcpcd_interface_config:
-  - name: "{{ ansible_default_ipv4.interface }}"
+dhcpcd_interface_config_using_default_interface:
+  - name: "{{ ansible_default_ipv4.interface | default('invalid') }}"
     config: |
       gateway
       metric 0
+
+dhcpcd_interface_config: "{{ ('interface' in ansible_default_ipv4) | ternary(dhcpcd_interface_config_using_default_interface, []) }}"
